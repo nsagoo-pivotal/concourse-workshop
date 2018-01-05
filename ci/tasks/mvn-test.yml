@@ -7,8 +7,8 @@ image_resource:
     repository: jamesdbloom/docker-java8-maven
     tag: "latest"
 
-inputs:
+input:
 - name: git-assets
 
 run:
-  path: git-assets/concourse-workshop/ci/tasks/test.sh
+  path: git-assets/ci/tasks/test.sh
