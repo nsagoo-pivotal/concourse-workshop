@@ -2,5 +2,5 @@
 
 set -xe
 
-cd git-assets
+cd git-assets/concourse-workshop
 mvn test
