@@ -7,14 +7,13 @@ resources:
 
 jobs:
 - name: unit-test
-  public: true
   plan:
   - get: git-assets
     trigger: true
   - task: mvn-test
     file: git-assets/ci/tasks/mvn-test.yml
+
 - name: deploy-cf
-  public: true
   plan:
   - get: git-assets
     trigger: true

@@ -5,6 +5,15 @@ resources:
     branch: master
     uri: https://github.com/nsagoo-pivotal/concourse-workshop
 
+- name: cloudfoundry
+  type: cf
+  source: 
+    api: {{cf-api}}
+    organization: {{cf-organization}}
+    space: {{cf-space}}
+    username: {{cf-username}}
+    password: {{cf-password}}
+
 jobs:
 - name: unit-test
   public: true
@@ -23,3 +32,7 @@ jobs:
       - unit-test
   - task: mvn-package
     file: git-assets/ci/tasks/mvn-package.yml
+  - put: cloudfoundry
+    params:
+      manifest: git-assets/manifest.yml
+      path: app-output/concourse-demo.jar
